@@ -649,18 +649,18 @@ const FightPromo = () => {
         </div>
       </header>
 
-      {/* Title - compact */}
-      <div className="shrink-0 text-center px-4 pb-2">
-        <h1 className="text-2xl sm:text-3xl tracking-tight">
+      {/* Title - moved up, tighter */}
+      <div className="shrink-0 text-center px-4 -mt-1">
+        <h1 className="text-3xl sm:text-4xl tracking-tight -mt-10">
           <span className="text-blue-400">JAKE</span>
-          <span className="text-white/20 mx-2 text-base">vs</span>
+          <span className="text-white/20 mx-2 text-lg">vs</span>
           <span className="text-red-400">AJ</span>
         </h1>
-        <p className="text-white text-xs sm:text-sm font-bold tracking-wider">SWIPE TO PREDICT</p>
+        <p className="text-white text-sm sm:text-base font-bold tracking-wider">SWIPE TO PREDICT</p>
       </div>
 
       {/* Card Area - MAX SIZE */}
-      <div className="flex-1 flex items-center justify-center px-3 min-h-0">
+      <div className="flex-1 flex items-center justify-center px-3 min-h-0 -mt-1">
         {!showEpicExperience && (
           <div className="relative w-full h-full max-w-[450px]" style={{ maxHeight: '100%' }}>
             <FightCard key={cardKey} onSwipe={handleSwipe} />
@@ -668,29 +668,29 @@ const FightPromo = () => {
         )}
       </div>
 
-      {/* Bottom - minimal */}
-      <div className="shrink-0 px-4 pb-3 pt-2">
-        <div className="flex justify-center items-center gap-8">
+      {/* Bottom - bigger */}
+      <div className="shrink-0 px-4 pb-4 pt-3">
+        <div className="flex justify-center items-center gap-10">
           <motion.div
-            className="flex items-center gap-2"
-            animate={{ x: [-3, 3, -3] }}
+            className="flex items-center gap-3"
+            animate={{ x: [-4, 4, -4] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <span className="text-blue-400 text-2xl">◀</span>
-            <span className="text-blue-400 text-xs">JAKE</span>
-            <span className="text-blue-400/60 text-[10px]">{FIGHT_DATA.fighter1.odds}%</span>
+            <span className="text-blue-400 text-3xl">◀</span>
+            <span className="text-blue-400 text-base">JAKE</span>
+            <span className="text-blue-400/60 text-sm">{FIGHT_DATA.fighter1.odds}%</span>
           </motion.div>
 
-          <div className="text-green-400 text-sm">$1.2M</div>
+          <div className="text-green-400 text-lg">$1.2M</div>
 
           <motion.div
-            className="flex items-center gap-2"
-            animate={{ x: [3, -3, 3] }}
+            className="flex items-center gap-3"
+            animate={{ x: [4, -4, 4] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <span className="text-red-400/60 text-[10px]">{FIGHT_DATA.fighter2.odds}%</span>
-            <span className="text-red-400 text-xs">AJ</span>
-            <span className="text-red-400 text-2xl">▶</span>
+            <span className="text-red-400/60 text-sm">{FIGHT_DATA.fighter2.odds}%</span>
+            <span className="text-red-400 text-base">AJ</span>
+            <span className="text-red-400 text-3xl">▶</span>
           </motion.div>
         </div>
       </div>
