@@ -37,6 +37,18 @@ export default function Home() {
   const ctaSection = useInView(0.3)
   const exampleSection = useInView(0.2)
 
+  // Preload fight videos in background
+  useEffect(() => {
+    const videos = ['/jake-wins.mp4', '/aj-wins.mp4', '/fight-hero.mp4']
+    videos.forEach(src => {
+      const link = document.createElement('link')
+      link.rel = 'prefetch'
+      link.href = src
+      link.as = 'video'
+      document.head.appendChild(link)
+    })
+  }, [])
+
   return (
     <div className="min-h-screen bg-[#180a08] text-foreground overflow-hidden font-mono">
       <nav className="fixed top-0 w-full z-50 mix-blend-difference animate-fade-in-up">

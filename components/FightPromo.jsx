@@ -563,6 +563,17 @@ const FightPromo = () => {
 
   const timeLeft = useCountdown(FIGHT_DATA.date);
 
+  // Preload videos on mount
+  useEffect(() => {
+    const videos = ['/jake-wins.mp4', '/aj-wins.mp4', '/fight-hero.mp4'];
+    videos.forEach(src => {
+      const video = document.createElement('video');
+      video.preload = 'auto';
+      video.src = src;
+      video.load();
+    });
+  }, []);
+
   const toggleSound = () => {
     sounds.resume();
     const enabled = sounds.toggle();
