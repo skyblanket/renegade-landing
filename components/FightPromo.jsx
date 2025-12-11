@@ -384,20 +384,20 @@ const EpicBettingExperience = ({ fighter, onComplete, onCancel }) => {
             initial={{ opacity: 0, scale: 1.5 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="absolute inset-0 flex items-center justify-center z-20"
+            className="absolute inset-0 flex items-center justify-center z-20 px-4"
             style={{ fontFamily: '"Press Start 2P", monospace' }}
           >
             <div className="text-center">
-              <div className="text-white/60 text-[10px] tracking-[0.3em] mb-4">YOU'RE BETTING ON</div>
+              <div className="text-white/60 text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] mb-3 sm:mb-4">YOU'RE BETTING ON</div>
               <h1
-                className={`text-5xl sm:text-7xl ${isJake ? 'text-blue-400' : 'text-red-400'}`}
+                className={`text-4xl sm:text-5xl md:text-7xl ${isJake ? 'text-blue-400' : 'text-red-400'}`}
                 style={{
-                  textShadow: `4px 4px 0 ${isJake ? '#1e40af' : '#991b1b'}, 0 0 60px ${isJake ? 'rgba(59,130,246,0.8)' : 'rgba(239,68,68,0.8)'}`,
+                  textShadow: `3px 3px 0 ${isJake ? '#1e40af' : '#991b1b'}, 0 0 40px ${isJake ? 'rgba(59,130,246,0.8)' : 'rgba(239,68,68,0.8)'}`,
                 }}
               >
                 {isJake ? 'JAKE' : 'AJ'}
               </h1>
-              <div className="text-white text-lg tracking-widest mt-4">WINS</div>
+              <div className="text-white text-base sm:text-lg tracking-widest mt-3 sm:mt-4">WINS</div>
             </div>
           </motion.div>
         )}
@@ -407,7 +407,7 @@ const EpicBettingExperience = ({ fighter, onComplete, onCancel }) => {
       <AnimatePresence>
         {phase === 'betting' && (
           <motion.div
-            className="absolute bottom-6 left-4 right-4 z-30 flex justify-center"
+            className="absolute bottom-4 sm:bottom-6 left-3 right-3 sm:left-4 sm:right-4 z-30 flex justify-center"
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
@@ -418,25 +418,25 @@ const EpicBettingExperience = ({ fighter, onComplete, onCancel }) => {
             }}
             style={{ fontFamily: '"Press Start 2P", monospace' }}
           >
-            <div className={`w-full max-w-sm bg-zinc-900/95 backdrop-blur-sm rounded-2xl border ${isJake ? 'border-blue-500/40' : 'border-red-500/40'}`}>
+            <div className={`w-full max-w-sm bg-zinc-900/95 backdrop-blur-sm rounded-xl sm:rounded-2xl border ${isJake ? 'border-blue-500/40' : 'border-red-500/40'}`}>
               {/* Header */}
-              <div className={`p-4 border-b ${isJake ? 'border-blue-500/20' : 'border-red-500/20'}`}>
-                <div className="text-zinc-400 text-[8px] tracking-widest">PLACE YOUR BET</div>
-                <div className={`text-sm mt-1 ${isJake ? 'text-blue-400' : 'text-red-400'}`}>
+              <div className={`p-3 sm:p-4 border-b ${isJake ? 'border-blue-500/20' : 'border-red-500/20'}`}>
+                <div className="text-zinc-400 text-[7px] sm:text-[8px] tracking-widest">PLACE YOUR BET</div>
+                <div className={`text-xs sm:text-sm mt-1 ${isJake ? 'text-blue-400' : 'text-red-400'}`}>
                   {fighterData.country} {fighterData.nickname} WINS
                 </div>
               </div>
 
-              <div className="p-4 space-y-4">
+              <div className="p-3 sm:p-4 space-y-3 sm:space-y-4">
                 {/* Amount */}
                 <div>
-                  <div className="text-zinc-500 text-[8px] mb-3">SELECT AMOUNT</div>
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="text-zinc-500 text-[7px] sm:text-[8px] mb-2 sm:mb-3">SELECT AMOUNT</div>
+                  <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
                     {[50, 100, 250, 500].map(amt => (
                       <button
                         key={amt}
                         onClick={() => { sounds.click(); setBetAmount(amt); }}
-                        className={`py-3 text-[10px] rounded-xl transition-all ${
+                        className={`py-2 sm:py-3 text-[9px] sm:text-[10px] rounded-lg sm:rounded-xl transition-all ${
                           betAmount === amt
                             ? isJake ? 'bg-blue-500 text-white' : 'bg-red-500 text-white'
                             : 'bg-zinc-800/80 text-zinc-400 hover:bg-zinc-700/80 border border-zinc-700/50'
@@ -449,24 +449,24 @@ const EpicBettingExperience = ({ fighter, onComplete, onCancel }) => {
                 </div>
 
                 {/* Potential */}
-                <div className={`p-3 rounded-xl border ${isJake ? 'border-blue-500/30' : 'border-red-500/30'}`}>
+                <div className={`p-2 sm:p-3 rounded-lg sm:rounded-xl border ${isJake ? 'border-blue-500/30' : 'border-red-500/30'}`}>
                   <div className="flex justify-between items-center">
-                    <span className="text-zinc-400 text-[8px]">POTENTIAL WIN</span>
-                    <span className={`text-lg ${isJake ? 'text-blue-400' : 'text-red-400'}`}>${potentialWin}</span>
+                    <span className="text-zinc-400 text-[7px] sm:text-[8px]">POTENTIAL WIN</span>
+                    <span className={`text-base sm:text-lg ${isJake ? 'text-blue-400' : 'text-red-400'}`}>${potentialWin}</span>
                   </div>
                 </div>
 
                 {/* Buttons */}
-                <div className="flex gap-2">
+                <div className="flex gap-1.5 sm:gap-2">
                   <button
                     onClick={handleCancel}
-                    className="flex-1 py-3 text-[9px] rounded-xl bg-zinc-800/80 text-zinc-400 hover:bg-zinc-700/80 border border-zinc-700/50"
+                    className="flex-1 py-2 sm:py-3 text-[8px] sm:text-[9px] rounded-lg sm:rounded-xl bg-zinc-800/80 text-zinc-400 hover:bg-zinc-700/80 border border-zinc-700/50"
                   >
                     CANCEL
                   </button>
                   <button
                     onClick={handleConfirm}
-                    className={`flex-1 py-3 text-[9px] rounded-xl text-white ${isJake ? 'bg-blue-500' : 'bg-red-500'}`}
+                    className={`flex-1 py-2 sm:py-3 text-[8px] sm:text-[9px] rounded-lg sm:rounded-xl text-white ${isJake ? 'bg-blue-500' : 'bg-red-500'}`}
                   >
                     CONFIRM
                   </button>
@@ -485,21 +485,21 @@ const EpicBettingExperience = ({ fighter, onComplete, onCancel }) => {
             animate={{ scale: 1, rotate: 0 }}
             exit={{ scale: 1.5, opacity: 0 }}
             transition={{ type: 'spring', damping: 10 }}
-            className="absolute inset-0 flex items-center justify-center z-30"
+            className="absolute inset-0 flex items-center justify-center z-30 px-4"
             style={{ fontFamily: '"Press Start 2P", monospace' }}
           >
             <div className="text-center">
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 0.3, repeat: 3 }}
-                className={`text-5xl sm:text-6xl ${isJake ? 'text-blue-400' : 'text-red-400'}`}
+                className={`text-4xl sm:text-5xl md:text-6xl ${isJake ? 'text-blue-400' : 'text-red-400'}`}
                 style={{
-                  textShadow: `4px 4px 0 ${isJake ? '#1e40af' : '#991b1b'}, 0 0 80px ${isJake ? 'rgba(59,130,246,1)' : 'rgba(239,68,68,1)'}`,
+                  textShadow: `3px 3px 0 ${isJake ? '#1e40af' : '#991b1b'}, 0 0 60px ${isJake ? 'rgba(59,130,246,1)' : 'rgba(239,68,68,1)'}`,
                 }}
               >
                 ${betAmount}
               </motion.div>
-              <div className="text-white text-sm tracking-widest mt-6">BET LOCKED</div>
+              <div className="text-white text-xs sm:text-sm tracking-widest mt-4 sm:mt-6">BET LOCKED</div>
             </div>
           </motion.div>
         )}
@@ -512,7 +512,7 @@ const EpicBettingExperience = ({ fighter, onComplete, onCancel }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 flex items-center justify-center z-20"
+            className="absolute inset-0 flex items-center justify-center z-20 px-4"
             style={{ fontFamily: '"Press Start 2P", monospace' }}
           >
             <motion.div
@@ -521,14 +521,14 @@ const EpicBettingExperience = ({ fighter, onComplete, onCancel }) => {
               transition={{ duration: 2, repeat: Infinity }}
             >
               <div
-                className={`text-4xl ${isJake ? 'text-blue-400' : 'text-red-400'}`}
-                style={{ textShadow: `3px 3px 0 ${isJake ? '#1e40af' : '#991b1b'}, 0 0 40px ${isJake ? 'rgba(59,130,246,0.8)' : 'rgba(239,68,68,0.8)'}` }}
+                className={`text-3xl sm:text-4xl ${isJake ? 'text-blue-400' : 'text-red-400'}`}
+                style={{ textShadow: `2px 2px 0 ${isJake ? '#1e40af' : '#991b1b'}, 0 0 30px ${isJake ? 'rgba(59,130,246,0.8)' : 'rgba(239,68,68,0.8)'}` }}
               >
                 ${betAmount}
               </div>
-              <div className="text-white/60 text-[10px] tracking-widest mt-4">ON {fighterData.nickname}</div>
+              <div className="text-white/60 text-[8px] sm:text-[10px] tracking-widest mt-3 sm:mt-4">ON {fighterData.nickname}</div>
               <motion.div
-                className="text-white/40 text-[8px] mt-6"
+                className="text-white/40 text-[7px] sm:text-[8px] mt-4 sm:mt-6"
                 animate={{ opacity: [0.4, 1, 0.4] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
@@ -626,23 +626,23 @@ const FightPromo = () => {
   return (
     <div className="h-screen bg-black text-white flex flex-col overflow-hidden" style={{ fontFamily: '"Press Start 2P", monospace' }}>
       {/* Header */}
-      <header className="shrink-0 flex items-center justify-between px-4 py-2">
-        <a href="/" className="text-xs tracking-[0.3em] uppercase text-white hover:opacity-80 transition-opacity">
+      <header className="shrink-0 flex items-center justify-between px-3 sm:px-4 py-2">
+        <a href="/" className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white hover:opacity-80 transition-opacity">
           Renegade
         </a>
 
-        <div className="flex flex-col items-end gap-1">
-          <div className="flex items-center gap-2">
-            <div className="px-2 py-1 rounded-lg bg-zinc-900/80 border border-red-500/40 text-[7px] text-red-400">NETFLIX</div>
+        <div className="flex flex-col items-end gap-0.5 sm:gap-1">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-lg bg-zinc-900/80 border border-red-500/40 text-[6px] sm:text-[7px] text-red-400">NETFLIX</div>
             <button
               onClick={toggleSound}
-              className="p-1 rounded-lg bg-zinc-900/80 border border-white/20 hover:border-white/40 transition-colors"
+              className="p-0.5 sm:p-1 rounded-lg bg-zinc-900/80 border border-white/20 hover:border-white/40 transition-colors"
             >
-              {soundEnabled ? <Volume2 size={14} className="text-white/60" /> : <VolumeX size={14} className="text-white/40" />}
+              {soundEnabled ? <Volume2 size={12} className="sm:w-[14px] sm:h-[14px] text-white/60" /> : <VolumeX size={12} className="sm:w-[14px] sm:h-[14px] text-white/40" />}
             </button>
           </div>
           {/* Timer under Netflix */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-0.5 sm:gap-1">
             {[
               { value: timeLeft.days, label: 'D', color: 'red' },
               { value: timeLeft.hours, label: 'H', color: 'white' },
@@ -650,10 +650,10 @@ const FightPromo = () => {
               { value: timeLeft.seconds, label: 'S', color: 'green' },
             ].map((item) => (
               <div key={item.label} className="flex items-center">
-                <span className={`text-base tabular-nums ${item.color === 'red' ? 'text-red-400' : item.color === 'green' ? 'text-green-400' : 'text-white'}`}>
+                <span className={`text-sm sm:text-base tabular-nums ${item.color === 'red' ? 'text-red-400' : item.color === 'green' ? 'text-green-400' : 'text-white'}`}>
                   {String(item.value).padStart(2, '0')}
                 </span>
-                <span className="text-[8px] text-zinc-500 ml-0.5 mr-1">{item.label}</span>
+                <span className="text-[6px] sm:text-[8px] text-zinc-500 ml-0.5 mr-0.5 sm:mr-1">{item.label}</span>
               </div>
             ))}
           </div>
@@ -661,13 +661,13 @@ const FightPromo = () => {
       </header>
 
       {/* Title - moved up, tighter */}
-      <div className="shrink-0 text-center px-4 -mt-1">
-        <h1 className="text-3xl sm:text-4xl tracking-tight -mt-10">
+      <div className="shrink-0 text-center px-3 sm:px-4 -mt-1">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl tracking-tight -mt-6 sm:-mt-10">
           <span className="text-blue-400">JAKE</span>
-          <span className="text-white/20 mx-2 text-lg">vs</span>
+          <span className="text-white/20 mx-1 sm:mx-2 text-base sm:text-lg">vs</span>
           <span className="text-red-400">AJ</span>
         </h1>
-        <p className="text-white text-sm sm:text-base font-bold tracking-wider">SWIPE TO PREDICT</p>
+        <p className="text-white text-xs sm:text-sm md:text-base font-bold tracking-wider">SWIPE TO PREDICT</p>
       </div>
 
       {/* Card Area - MAX SIZE */}
@@ -680,28 +680,28 @@ const FightPromo = () => {
       </div>
 
       {/* Bottom - bigger */}
-      <div className="shrink-0 px-4 pb-4 pt-3">
-        <div className="flex justify-center items-center gap-10">
+      <div className="shrink-0 px-2 sm:px-4 pb-3 sm:pb-4 pt-2 sm:pt-3">
+        <div className="flex justify-center items-center gap-4 sm:gap-8 md:gap-10">
           <motion.div
-            className="flex items-center gap-3"
-            animate={{ x: [-4, 4, -4] }}
+            className="flex items-center gap-1.5 sm:gap-3"
+            animate={{ x: [-3, 3, -3] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <span className="text-blue-400 text-3xl">◀</span>
-            <span className="text-blue-400 text-base">JAKE</span>
-            <span className="text-blue-400/60 text-sm">{FIGHT_DATA.fighter1.odds}%</span>
+            <span className="text-blue-400 text-xl sm:text-2xl md:text-3xl">◀</span>
+            <span className="text-blue-400 text-xs sm:text-sm md:text-base">JAKE</span>
+            <span className="text-blue-400/60 text-[10px] sm:text-xs md:text-sm">{FIGHT_DATA.fighter1.odds}%</span>
           </motion.div>
 
-          <div className="text-green-400 text-lg">$1.2M</div>
+          <div className="text-green-400 text-sm sm:text-base md:text-lg">$1.2M</div>
 
           <motion.div
-            className="flex items-center gap-3"
-            animate={{ x: [4, -4, 4] }}
+            className="flex items-center gap-1.5 sm:gap-3"
+            animate={{ x: [3, -3, 3] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <span className="text-red-400/60 text-sm">{FIGHT_DATA.fighter2.odds}%</span>
-            <span className="text-red-400 text-base">AJ</span>
-            <span className="text-red-400 text-3xl">▶</span>
+            <span className="text-red-400/60 text-[10px] sm:text-xs md:text-sm">{FIGHT_DATA.fighter2.odds}%</span>
+            <span className="text-red-400 text-xs sm:text-sm md:text-base">AJ</span>
+            <span className="text-red-400 text-xl sm:text-2xl md:text-3xl">▶</span>
           </motion.div>
         </div>
       </div>
@@ -725,25 +725,25 @@ const FightPromo = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 100, opacity: 0 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-6 right-4 z-40 w-64"
+            className="fixed bottom-4 sm:bottom-6 right-3 sm:right-4 z-40 w-56 sm:w-64"
             style={{ fontFamily: '"Press Start 2P", monospace' }}
             onClick={dismissToast}
           >
-            <div className="bg-zinc-900/95 backdrop-blur-sm rounded-2xl p-4 border border-green-500/40">
+            <div className="bg-zinc-900/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-green-500/40">
               {/* Header */}
-              <div className="flex items-center gap-2 mb-3">
-                <div className="text-green-400 text-sm">✓</div>
-                <div className="text-green-400 text-[9px]">BET PLACED</div>
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <div className="text-green-400 text-xs sm:text-sm">✓</div>
+                <div className="text-green-400 text-[8px] sm:text-[9px]">BET PLACED</div>
               </div>
 
               {/* Amount */}
               <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-white text-lg">${toastData.amount}</span>
-                <span className="text-zinc-500 text-[8px]">on {toastData.nickname}</span>
+                <span className="text-white text-base sm:text-lg">${toastData.amount}</span>
+                <span className="text-zinc-500 text-[7px] sm:text-[8px]">on {toastData.nickname}</span>
               </div>
 
               {/* Potential win */}
-              <div className="flex justify-between items-center text-[8px] pt-3 border-t border-zinc-800">
+              <div className="flex justify-between items-center text-[7px] sm:text-[8px] pt-2 sm:pt-3 border-t border-zinc-800">
                 <span className="text-zinc-500">POTENTIAL WIN</span>
                 <span className="text-green-400">+${toastData.potentialWin}</span>
               </div>
